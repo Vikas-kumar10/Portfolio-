@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vikas Kumar — Developer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1209;
+  --cream: #f5f0e8;
+  --paper: #faf7f2;
+  --warm: #e8dfc8;
+  --accent: #c84b2f;
+  --accent2: #2a6049;
+  --muted: #8a7e6e;
+  --rule: #d4c9b0;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  border-bottom: 2px solid var(--ink);
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  z-index: 100;
+}
+
+.header-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+nav {
+  display: flex;
+  gap: 2.5rem;
+}
+nav a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--accent); }
+
+.header-status {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent2);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.status-dot {
+  width: 6px; height: 6px;
+  background: var(--accent2);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── HERO ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 58px);
+  border-bottom: 2px solid var(--ink);
+}
+
+.hero-left {
+  padding: 5rem 3rem 4rem;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.issue-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  flex: 1;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-meta {
+  margin-top: 3rem;
+}
+
+.hero-byline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+.hero-right {
+  padding: 5rem 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-summary {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  line-height: 1.65;
+  color: var(--ink);
+  font-weight: 400;
+  max-width: 480px;
+}
+
+.hero-summary strong {
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
+
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-top: 3rem;
+}
+
+.stat-item {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-right: 1px solid var(--rule);
+}
+.stat-item:last-child { border-right: none; }
+
+.stat-figure {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  display: block;
+}
+.stat-caption {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+  display: block;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 2px solid;
+}
+.btn-dark {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+.btn-dark:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn-light {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+.btn-light:hover { border-color: var(--ink); }
+
+/* ── SECTION LAYOUT ── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--rule);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ── SKILLS ── */
+.skills-section {
+  padding: 5rem 3rem;
+  border-bottom: 2px solid var(--ink);
+  background: var(--cream);
+}
+
+.skills-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.skill-col {
+  padding: 2rem;
+  border-right: 1px solid var(--rule);
+  transition: background 0.2s;
+}
+.skill-col:last-child { border-right: none; }
+.skill-col:hover { background: var(--warm); }
+
+.skill-col-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.skill-col-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.skill-col-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.skill-list { list-style: none; }
+.skill-list li {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: 0.04em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.skill-list li:last-child { border-bottom: none; }
+.skill-list li::after {
+  content: '→';
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.skill-col:hover .skill-list li::after { opacity: 1; }
+
+.skills-row2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-top: none;
+}
+
+/* ── PROJECT ── */
+.project-section {
+  padding: 5rem 3rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.project-spread {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.project-main {
+  padding: 3rem;
+  border-right: 1px solid var(--rule);
+  background: var(--cream);
+}
+
+.project-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.project-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.project-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.project-body-text {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.8;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  column-count: 2;
+  column-gap: 2rem;
+}
+
+.project-sidebar {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar-block-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.tech-stack-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.tech-stack-list li {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--ink);
+  padding: 0.4rem 0.7rem;
+  background: var(--warm);
+  border-left: 3px solid var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.feature-list { list-style: none; }
+.feature-list li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--rule);
+  padding-left: 1rem;
+  position: relative;
+}
+.feature-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--accent2);
+  font-size: 0.6rem;
+}
+
+/* ── EDUCATION ── */
+.education-section {
+  padding: 5rem 3rem;
+  background: var(--cream);
+  border-bottom: 2px solid var(--ink);
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.edu-card {
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.edu-card:hover { border-color: var(--ink); }
+
+.edu-card-top {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.edu-year {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.edu-degree {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.edu-abbr {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.edu-card-bottom {
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edu-university {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.edu-cgpa {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--accent2);
+}
+
+/* ── CERTIFICATIONS ── */
+.certs-section {
+  padding: 5rem 3rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.certs-achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.cert-list { list-style: none; }
+.cert-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.cert-item:first-child { border-top: 1px solid var(--rule); }
+
+.cert-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--rule);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2.5rem;
+  text-align: right;
+}
+
+.cert-info-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.cert-info-org {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--accent2);
+  text-transform: uppercase;
+}
+
+.achieve-list { list-style: none; }
+.achieve-item {
+  padding: 1.5rem;
+  border: 1px solid var(--rule);
+  margin-bottom: 1rem;
+  background: var(--cream);
+  position: relative;
+  transition: background 0.2s;
+}
+.achieve-item:hover { background: var(--warm); }
+.achieve-item::before {
+  content: attr(data-icon);
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  font-size: 1.2rem;
+}
+
+.achieve-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.achieve-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  padding: 5rem 3rem;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.contact-headline em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.contact-sub {
+  font-size: 0.85rem;
+  color: #8a7e6e;
+  line-height: 1.7;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #2e2720;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.4rem 1.8rem;
+  text-decoration: none;
+  color: var(--cream);
+  border-bottom: 1px solid #2e2720;
+  transition: all 0.2s;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.contact-link:last-child { border-bottom: none; }
+.contact-link:hover { background: var(--accent); color: #fff; }
+
+.contact-link-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b5f50;
+  display: block;
+  transition: color 0.2s;
+}
+.contact-link:hover .contact-link-label { color: rgba(255,255,255,0.7); }
+
+.contact-link-value {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.contact-icon {
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.contact-arrow {
+  margin-left: auto;
+  font-size: 0.9rem;
+  opacity: 0.3;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.contact-link:hover .contact-arrow { opacity: 1; transform: translateX(4px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  border-top: 1px solid #2e2720;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #4a3f32;
+  text-transform: uppercase;
+}
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  header { padding: 1rem 1.5rem; }
+  nav { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 4rem 1.5rem 2rem; }
+  .hero-right { padding: 2rem 1.5rem 4rem; }
+  .skills-section, .project-section, .education-section, .certs-section { padding: 4rem 1.5rem; }
+  .skills-columns, .skills-row2 { grid-template-columns: 1fr; }
+  .skill-col { border-right: none; border-bottom: 1px solid var(--rule); }
+  .project-spread { grid-template-columns: 1fr; }
+  .project-main { border-right: none; }
+  .project-body-text { column-count: 1; }
+  .edu-grid, .certs-achievements-grid { grid-template-columns: 1fr; }
+  .contact-section { padding: 4rem 1.5rem; }
+  .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo">Vikas Kumar · Portfolio</div>
+  <nav>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="header-status">
+    <span class="status-dot"></span>
+    Available for Work
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div>
+      <div class="issue-tag">Full-Stack Developer · MCA 2025 · MERN Stack</div>
+      <h1 class="hero-headline">VIKAS<br><em>KUMAR</em></h1>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-byline">Siwan, Bihar · +91-7091871068 · vk394453@gmail.com</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <p class="hero-summary">
+      MCA graduate with a <strong>strong foundation</strong> in Full-Stack Web Development
+      and hands-on experience in the MERN stack. Proficient in C++, Python, JavaScript,
+      and Data Structures & Algorithms. Highly motivated and eager to contribute
+      to real-world software projects.
+    </p>
+    <div>
+      <div class="hero-stats-row">
+        <div class="stat-item">
+          <span class="stat-figure">120+</span>
+          <span class="stat-caption">DSA Problems</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-figure">100</span>
+          <span class="stat-caption">Day Streak</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-figure">MERN</span>
+          <span class="stat-caption">Stack Expert</span>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-dark">View Projects</a>
+        <a href="#contact" class="btn btn-light">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Technical Skills</h2>
+  </div>
+
+  <div class="skills-columns reveal">
+    <div class="skill-col">
+      <div class="skill-col-label">Languages</div>
+      <div class="skill-col-title">Core Programming</div>
+      <ul class="skill-list">
+        <li>Python</li><li>C++</li><li>JavaScript</li><li>SQL</li>
+      </ul>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-label">Frontend</div>
+      <div class="skill-col-title">UI Development</div>
+      <ul class="skill-list">
+        <li>React.js</li><li>HTML5 &amp; CSS3</li><li>Responsive Design</li><li>State Management</li>
+      </ul>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-label">Backend</div>
+      <div class="skill-col-title">Server &amp; APIs</div>
+      <ul class="skill-list">
+        <li>Node.js</li><li>Express.js</li><li>RESTful APIs</li><li>JWT Auth</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="skills-row2 reveal" style="margin-top:1.5rem">
+    <div class="skill-col">
+      <div class="skill-col-label">Database</div>
+      <div class="skill-col-title">Data Management</div>
+      <ul class="skill-list">
+        <li>MongoDB</li><li>MySQL</li><li>CRUD Operations</li><li>Schema Design</li>
+      </ul>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-label">Algorithms</div>
+      <div class="skill-col-title">DSA</div>
+      <ul class="skill-list">
+        <li>Arrays &amp; Strings</li><li>Stacks &amp; Queues</li><li>Trees &amp; Recursion</li><li>Sorting</li>
+      </ul>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-label">Tooling</div>
+      <div class="skill-col-title">Developer Tools</div>
+      <ul class="skill-list">
+        <li>Git &amp; GitHub</li><li>VS Code</li><li>IntelliJ IDEA</li><li>Canva</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="project-section" id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Featured Project</h2>
+  </div>
+
+  <div class="project-spread reveal">
+    <div class="project-main">
+      <div class="project-kicker">Academic Project · Jan 2025</div>
+      <h3 class="project-name">Student HostelHub</h3>
+      <div class="project-sub">A full-stack marketplace for hostel essentials</div>
+      <div class="project-body-text">
+        Designed and developed a full-stack e-commerce web application enabling students
+        to buy and sell hostel essentials. Built frontend using HTML5, CSS3, and React.js,
+        ensuring a responsive and user-friendly interface. Developed backend services with
+        Node.js and Express.js to handle RESTful APIs and server-side logic. Implemented
+        MongoDB for database management, including schema design and CRUD operations.
+        Integrated secure user authentication using JWT-based authentication. Applied best
+        practices in modular coding, API integration, and state management.
+      </div>
+    </div>
+
+    <div class="project-sidebar">
+      <div>
+        <div class="sidebar-block-title">Tech Stack</div>
+        <ul class="tech-stack-list">
+          <li>React.js</li><li>Node.js</li><li>Express.js</li>
+          <li>MongoDB</li><li>JWT Auth</li><li>HTML5 / CSS3</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sidebar-block-title">Key Features</div>
+        <ul class="feature-list">
+          <li>Product listing &amp; search</li>
+          <li>Shopping cart</li>
+          <li>Order management</li>
+          <li>JWT authentication</li>
+          <li>RESTful API backend</li>
+          <li>Responsive UI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education-section" id="education">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education</h2>
+  </div>
+
+  <div class="edu-grid reveal">
+    <div class="edu-card">
+      <div class="edu-card-top">
+        <div class="edu-year">2023 – 2025</div>
+        <div class="edu-degree">Master of Computer Applications</div>
+        <div class="edu-abbr">MCA</div>
+      </div>
+      <div class="edu-card-bottom">
+        <div class="edu-university">Pondicherry University, Puducherry</div>
+        <div class="edu-cgpa">6.4</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-card-top">
+        <div class="edu-year">2018 – 2021</div>
+        <div class="edu-degree">Bachelor of Computer Applications</div>
+        <div class="edu-abbr">BCA</div>
+      </div>
+      <div class="edu-card-bottom">
+        <div class="edu-university">Maharshi Dayanand University, Rohtak</div>
+        <div class="edu-cgpa">7.5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS & ACHIEVEMENTS -->
+<section class="certs-section">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Certifications &amp; Achievements</h2>
+  </div>
+
+  <div class="certs-achievements-grid reveal">
+    <div>
+      <ul class="cert-list">
+        <li class="cert-item">
+          <span class="cert-num">01</span>
+          <div>
+            <div class="cert-info-title">Foundations of R Software</div>
+            <div class="cert-info-org">NPTEL · SWAYAM</div>
+          </div>
+        </li>
+        <li class="cert-item">
+          <span class="cert-num">02</span>
+          <div>
+            <div class="cert-info-title">The Joy of Computing Using Python</div>
+            <div class="cert-info-org">NPTEL · SWAYAM</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <ul class="achieve-list">
+        <li class="achieve-item" data-icon="🏅">
+          <div class="achieve-title">100 Days Coding Badge</div>
+          <div class="achieve-desc">Earned the 100 Days and 50 Days Coding Badges on LeetCode for maintaining consistent daily problem-solving streaks.</div>
+        </li>
+        <li class="achieve-item" data-icon="⚡">
+          <div class="achieve-title">120+ DSA Problems Solved</div>
+          <div class="achieve-desc">Strengthened problem-solving skills across arrays, strings, stacks, queues, recursion, and trees on LeetCode.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <h2 class="contact-headline">Let's Work<br><em>Together.</em></h2>
+      <p class="contact-sub" style="margin-top:1.2rem">
+        Open to full-time roles, internships, and collaborative projects.
+        A quick learner and highly motivated to contribute to dynamic,
+        real-world software teams.
+      </p>
+    </div>
+
+    <div class="contact-links reveal">
+      <a href="mailto:vk394453@gmail.com" class="contact-link">
+        <span class="contact-icon">✉</span>
+        <div><span class="contact-link-label">Email</span><span class="contact-link-value">vk394453@gmail.com</span></div>
+        <span class="contact-arrow">→</span>
+      </a>
+      <a href="tel:+917091871068" class="contact-link">
+        <span class="contact-icon">☎</span>
+        <div><span class="contact-link-label">Phone</span><span class="contact-link-value">+91-7091871068</span></div>
+        <span class="contact-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="contact-link">
+        <span class="contact-icon">in</span>
+        <div><span class="contact-link-label">LinkedIn</span><span class="contact-link-value">Connect with me</span></div>
+        <span class="contact-arrow">→</span>
+      </a>
+      <a href="https://github.com" target="_blank" class="contact-link">
+        <span class="contact-icon">⌥</span>
+        <div><span class="contact-link-label">GitHub</span><span class="contact-link-value">View my repositories</span></div>
+        <span class="contact-arrow">→</span>
+      </a>
+      <a href="https://leetcode.com" target="_blank" class="contact-link">
+        <span class="contact-icon">⟨/⟩</span>
+        <div><span class="contact-link-label">LeetCode</span><span class="contact-link-value">120+ problems solved</span></div>
+        <span class="contact-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Vikas Kumar — Full-Stack Developer</p>
+  <p>Siwan, Bihar, India</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
