@@ -686,7 +686,7 @@ footer p {
 .reveal.in { opacity: 1; transform: none; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 900px) {
+/*@media (max-width: 900px) {
   header { padding: 1rem 1.5rem; }
   nav { display: none; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
@@ -702,6 +702,97 @@ footer p {
   .contact-section { padding: 4rem 1.5rem; }
   .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+  */
+
+  /* ===== DEFAULT (Desktop) ===== */
+
+/* Tumhara existing desktop CSS yahan rahega */
+
+
+/* ===== TABLET (≤ 900px) ===== */
+@media (max-width: 900px) {
+  header { padding: 1rem 1.5rem; }
+
+  nav { display: none; }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-right {
+    padding: 2rem 1.5rem;
+  }
+
+  .skills-section,
+  .project-section,
+  .education-section,
+  .certs-section,
+  .contact-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .skills-columns,
+  .skills-row2,
+  .project-spread,
+  .edu-grid,
+  .certs-achievements-grid,
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .project-main {
+    border-right: none;
+  }
+
+  .project-body-text {
+    column-count: 1;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+
+/* ===== MOBILE (≤ 600px) ===== */
+@media (max-width: 600px) {
+  header { padding: 0.8rem 1rem; }
+
+  h1 { font-size: 1.8rem; }
+
+  p { font-size: 0.9rem; }
+
+  .hero-left,
+  .hero-right {
+    padding: 2rem 1rem;
+  }
+
+  .skills-section,
+  .project-section,
+  .education-section,
+  .certs-section,
+  .contact-section {
+    padding: 2rem 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+  }
 }
 </style>
 </head>
